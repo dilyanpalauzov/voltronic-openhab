@@ -10,9 +10,9 @@
   <name>openHAB Add-ons :: Bundles :: Voltronic Inverter Binding</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <ohc.version>4.3.0</ohc.version>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <ohc.version>5.0.0</ohc.version>
     <sat.version>0.18.0</sat.version>
     <spotless.eclipse.wtp.version>4.21.0</spotless.eclipse.wtp.version>
     <spotless.eclipse.version>4.25</spotless.eclipse.version>
