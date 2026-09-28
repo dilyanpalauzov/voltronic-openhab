@@ -10,7 +10,7 @@
   </parent>
   <groupId>be.bapha.openhab.binding.voltronic</groupId>
 
-  <artifactId>openhab-binding-voltronic</artifactId>
+  <artifactId>bapha-binding-voltronic</artifactId>
   <version>5.0.0</version>
   <packaging>kar</packaging>
 
