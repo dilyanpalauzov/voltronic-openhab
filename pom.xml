@@ -4,7 +4,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>be.bapha.openhab.addons.bundles</groupId>
-  <artifactId>be.bapha.openhab.binding.voltronic</artifactId>
+  <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
   <version>5.0.0</version>
 
   <name>openHAB Add-ons :: Bundles :: Voltronic Inverter Binding</name>
@@ -17,90 +17,8 @@
     <spotless.eclipse.wtp.version>4.21.0</spotless.eclipse.wtp.version>
     <spotless.eclipse.version>4.25</spotless.eclipse.version>
   </properties>
-  <dependencies>
-    <dependency>
-      <groupId>org.eclipse.jdt</groupId>
-      <artifactId>org.eclipse.jdt.annotation</artifactId>
-      <version>2.4.100</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.openhab.core.bom</groupId>
-      <artifactId>org.openhab.core.bom.compile</artifactId>
-      <version>${ohc.version}</version>
-      <type>pom</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.openhab.core.bom</groupId>
-      <artifactId>org.openhab.core.bom.openhab-core</artifactId>
-      <version>${ohc.version}</version>
-      <type>pom</type>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
-  <repositories>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>openhab-release</id>
-      <url>https://openhab.jfrog.io/artifactory/libs-release</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>openhab-release</id>
-      <url>https://openhab.jfrog.io/artifactory/libs-release</url>
-    </pluginRepository>
-  </pluginRepositories>
   <build>
     <plugins>
-      <plugin>
-        <groupId>biz.aQute.bnd</groupId>
-        <artifactId>bnd-maven-plugin</artifactId>
-        <version>7.3.0</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.5.0</version>
-        <configuration>
-          <archive>
-            <addMavenDescriptor>false</addMavenDescriptor>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.openhab.tools.sat</groupId>
-        <artifactId>sat-plugin</artifactId>
-        <version>${sat.version}</version>
-        <configuration>
-          <checkstyleProperties>tools/static-code-analysis/checkstyle/ruleset.properties</checkstyleProperties>
-          <checkstyleFilter>tools/static-code-analysis/checkstyle/suppressions.xml</checkstyleFilter>
-          <spotbugsExclude>tools/static-code-analysis/spotbugs/suppressions.xml</spotbugsExclude>
-        </configuration>
-        <executions>
-          <execution>
-            <id>sat-all</id>
-            <goals>
-              <goal>checkstyle</goal>
-              <goal>pmd</goal>
-              <goal>spotbugs</goal>
-              <goal>report</goal>
-            </goals>
-            <phase>verify</phase>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.openhab.core.tools</groupId>
         <artifactId>i18n-maven-plugin</artifactId>
@@ -236,4 +154,23 @@
       </extension>
     </extensions>
   </build>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>openhab-release</id>
+      <url>https://openhab.jfrog.io/artifactory/libs-release</url>
+    </repository>
+    <repository>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>openhab-snapshot</id>
+      <url>https://openhab.jfrog.io/artifactory/libs-snapshot</url>
+    </repository>
+  </repositories>
+  <modules>
+    <module>jar</module>
+  </modules>
 </project>
