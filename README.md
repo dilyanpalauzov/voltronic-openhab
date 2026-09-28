@@ -45,7 +45,13 @@ However, as can be seen at the end of the current file, there is an action to se
 
 For the serial communication to work either under Settings → Add-On Management → USB Suggestion Finder must be enabled, or an add-on from the distribution, which utilizes serial communication, must be installed.
 
-This could be resolved by distributing `.kar` files, but openHAB does not fully utilize `.kar` files.
+This could be resolved by distributing `.kar` files, but openHAB does not fully utilize `.kar` files.  That said …
+
+### Building the Binding
+
+> mvn package -pl jar
+
+This skips building the `kar` module and the `.kar` file.
 
 The only known problem at runtime is that sometimes the input (PV) watts are read from the inverter, and sometimes are calculated by multiplying the input amperes with the input volts leading to different number compared to the display.  This is bug in this software.  A work-around is to unplug and plug the connecting cable.
 

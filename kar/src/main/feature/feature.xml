@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="be.bapha.openhab.binding.voltronic-${project.version}">
+	<feature name="openhab-binding-voltronic" description="Voltronic Inverter Binding" version="${project.version}">
+		<feature>openhab-runtime-base</feature>
+		<feature>openhab-transport-serial</feature>
+		<bundle start-level="80">mvn:be.bapha.openhab.addons.bundles/be.bapha.openhab.binding.voltronic-bundle/${project.version}</bundle>
+	</feature>
+</features>

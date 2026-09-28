@@ -16,6 +16,7 @@
     <sat.version>0.18.0</sat.version>
     <spotless.eclipse.wtp.version>4.21.0</spotless.eclipse.wtp.version>
     <spotless.eclipse.version>4.25</spotless.eclipse.version>
+    <karaf.version>4.4.8</karaf.version>
   </properties>
   <repositories>
     <repository>
@@ -170,4 +171,8 @@
       </extension>
     </extensions>
   </build>
+  <modules>
+    <module>jar</module>
+    <module>kar</module>
+  </modules>
 </project>
