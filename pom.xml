@@ -17,6 +17,22 @@
     <spotless.eclipse.wtp.version>4.21.0</spotless.eclipse.wtp.version>
     <spotless.eclipse.version>4.25</spotless.eclipse.version>
   </properties>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>openhab-release</id>
+      <url>https://openhab.jfrog.io/artifactory/libs-release</url>
+    </repository>
+    <repository>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>openhab-snapshot</id>
+      <url>https://openhab.jfrog.io/artifactory/libs-snapshot</url>
+    </repository>
+  </repositories>
   <build>
     <plugins>
       <plugin>
@@ -154,20 +170,4 @@
       </extension>
     </extensions>
   </build>
-  <repositories>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>openhab-release</id>
-      <url>https://openhab.jfrog.io/artifactory/libs-release</url>
-    </repository>
-    <repository>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>openhab-snapshot</id>
-      <url>https://openhab.jfrog.io/artifactory/libs-snapshot</url>
-    </repository>
-  </repositories>
 </project>
