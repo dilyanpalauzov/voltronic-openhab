@@ -6,12 +6,12 @@
   <parent>
     <groupId>be.bapha.openhab.addons.bundles</groupId>
     <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
-    <version>5.0.0</version>
+    <version>${this.version}</version>
   </parent>
   <groupId>be.bapha.openhab.addons.bundles</groupId>
 
   <artifactId>be.bapha.openhab.binding.voltronic-bundle</artifactId>
-  <version>5.0.0</version>
+  <version>${this.version}</version>
   <dependencies>
     <dependency>
       <groupId>org.eclipse.jdt</groupId>

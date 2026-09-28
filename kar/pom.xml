@@ -6,11 +6,11 @@
   <parent>
     <groupId>be.bapha.openhab.addons.bundles</groupId>
     <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
-    <version>5.0.0</version>
+    <version>${this.version}</version>
   </parent>
   <groupId>be.bapha.openhab.addons.bundles</groupId>
   <artifactId>bapha-binding-voltronic</artifactId>
-  <version>5.0.0</version>
+  <version>${this.version}</version>
   <packaging>kar</packaging>
 
   <dependencies>
@@ -39,7 +39,7 @@
     <dependency>
       <groupId>be.bapha.openhab.addons.bundles</groupId>
       <artifactId>be.bapha.openhab.binding.voltronic-bundle</artifactId>
-      <version>${ohc.version}</version>
+      <version>${this.version}</version>
     </dependency>
   </dependencies>
   <build>
