@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
     <groupId>be.bapha.openhab.addons.bundles</groupId>
+    <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
     <version>5.0.0</version>
   </parent>
+  <groupId>be.bapha.openhab.binding.voltronic</groupId>
 
   <artifactId>openhab-binding-voltronic</artifactId>
-  <groupId>be.bapha.openhab.binding.voltronic</groupId>
-  <packaging>kar</packaging>
   <version>5.0.0</version>
+  <packaging>kar</packaging>
 
   <dependencies>
     <dependency>

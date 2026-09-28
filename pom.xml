@@ -6,8 +6,13 @@
   <groupId>be.bapha.openhab.addons.bundles</groupId>
   <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
   <version>5.0.0</version>
+  <packaging>pom</packaging>
 
   <name>openHAB Add-ons :: Bundles :: Voltronic Inverter Binding</name>
+  <modules>
+    <module>jar</module>
+    <module>kar</module>
+  </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
@@ -171,8 +176,4 @@
       </extension>
     </extensions>
   </build>
-  <modules>
-    <module>jar</module>
-    <module>kar</module>
-  </modules>
 </project>

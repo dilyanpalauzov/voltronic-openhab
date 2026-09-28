@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-
-  <artifactId>be.bapha.openhab.binding.voltronic-bundle</artifactId>
-  <groupId>be.bapha.openhab.addons.bundles</groupId>
-  <version>5.0.0</version>
   <parent>
-    <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
     <groupId>be.bapha.openhab.addons.bundles</groupId>
+    <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
     <version>5.0.0</version>
   </parent>
+  <groupId>be.bapha.openhab.addons.bundles</groupId>
+
+  <artifactId>be.bapha.openhab.binding.voltronic-bundle</artifactId>
+  <version>5.0.0</version>
   <dependencies>
     <dependency>
       <groupId>org.eclipse.jdt</groupId>
