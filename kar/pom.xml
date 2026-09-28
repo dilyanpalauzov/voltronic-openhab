@@ -8,8 +8,7 @@
     <artifactId>be.bapha.openhab.binding.voltronic-parent</artifactId>
     <version>5.0.0</version>
   </parent>
-  <groupId>be.bapha.openhab.binding.voltronic</groupId>
-
+  <groupId>be.bapha.openhab.addons.bundles</groupId>
   <artifactId>bapha-binding-voltronic</artifactId>
   <version>5.0.0</version>
   <packaging>kar</packaging>
