@@ -170,7 +170,4 @@
       <url>https://openhab.jfrog.io/artifactory/libs-snapshot</url>
     </repository>
   </repositories>
-  <modules>
-    <module>jar</module>
-  </modules>
 </project>
