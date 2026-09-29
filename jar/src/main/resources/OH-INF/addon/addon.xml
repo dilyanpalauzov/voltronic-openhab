@@ -5,5 +5,6 @@
 	<type>binding</type>
 	<name>Voltronic Inverter Binding</name>
 	<description>Binding for Axpert, Effekta, Kodak, MPP Solar, No Name, Voltacon Inverters</description>
+	<keywords>Axpert,Effekta,Kodak,MPP Solar,Voltacon</keywords>
 	<connection>local</connection>
 </addon:addon>
