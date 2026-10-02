@@ -6,7 +6,7 @@
 
 	<thing-type id="inverter">
 		<label>Voltronic Inverter</label>
-		<description>Axpert, Effekta, MPP Solar, No Name, Voltacon Inverter</description>
+		<description>Axpert, Effekta, Kodak, MPP Solar, No Name, Voltacon Inverter</description>
 		<!-- <semantic-equipment-tag>Inverter</semantic-equipment-tag> since OH 5.0 -->
 		<channel-groups>
 			<channel-group id="qmod" typeId="qmod"/>
