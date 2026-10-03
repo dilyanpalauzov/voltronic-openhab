@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>be.bapha.openhab.addons.bundles</groupId>
   <artifactId>be.bapha.openhab.binding.voltronic</artifactId>
-  <version>4.3.0</version>
+  <version>${ohc.version}-20261003</version>
 
   <name>openHAB Add-ons :: Bundles :: Voltronic Inverter Binding</name>
   <properties>
