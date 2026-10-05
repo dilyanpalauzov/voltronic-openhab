@@ -1,14 +1,10 @@
-Bundle-SymbolicName: be.bapha.openhab.binding.voltronic
-Automatic-Module-Name: be.bapha.openhab.binding.voltronic
+Automatic-Module-Name: ${bsn}
+Bundle-SymbolicName: ${project.artifactId}
 Import-Package: \
   org.openhab.core.automation.annotation.*;resolution:=optional;version=!,\
   org.openhab.*;version=!,\
   gnu.io;version="[5.2.1,6)",\
   *
--exportcontents: \
-  !*.internal.*,\
-  !*.impl.*
 -noimportjava: true
--sources: false
 -contract: *
 -removeheaders: Private-Package
