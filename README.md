@@ -43,9 +43,11 @@ However, as can be seen at the end of the current file, there is an action to se
 
 ### Known troubles
 
-For the serial communication to work either under Settings → Add-On Management → USB Suggestion Finder must be enabled, or an add-on from the distribution, which utilizes serial communication, must be installed.
+This add-on is available as jar and kar file.  The kar file does implicitly start the `openhab-transport-serial` feature and the kar file can be installed over [the market place](https://community.openhab.org/t/voltronic-inverters-binding-4-3-6-0/)  or as “Json 3rd Party Add-on Service” with URL https://ohaddons.bapha.be/ .  The jar file can be installed by putting it in the openhab/share/addons directory and in addition for the serial communication to work it is required to enable under Settings → Add-On Management → USB Suggestion Finder.
 
-This could be resolved by distributing `.kar` files, but openHAB does not fully utilize `.kar` files.
+### Building the Binding
+
+> mvn package && zip $(find target -name *.kar) -d META-INF/* && advzip -z4 $(find target -name '*.[jk]ar')
 
 The only known problem at runtime is that sometimes the input (PV) watts are read from the inverter, and sometimes are calculated by multiplying the input amperes with the input volts leading to different number compared to the display.  This is bug in this software.  A work-around is to unplug and plug the connecting cable.
 

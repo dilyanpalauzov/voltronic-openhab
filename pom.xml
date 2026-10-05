@@ -16,12 +16,20 @@
     <sat.version>0.18.0</sat.version>
     <spotless.eclipse.wtp.version>4.21.0</spotless.eclipse.wtp.version>
     <spotless.eclipse.version>4.25</spotless.eclipse.version>
+    <karaf.version>4.4.12</karaf.version>
   </properties>
   <dependencies>
     <dependency>
       <groupId>org.eclipse.jdt</groupId>
       <artifactId>org.eclipse.jdt.annotation</artifactId>
       <version>2.4.100</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <!-- upstream is 2.0.20, OH uses 2.0.17 -->
+      <version>2.0.17</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -47,14 +55,26 @@
       <id>openhab-release</id>
       <url>https://openhab.jfrog.io/artifactory/libs-release</url>
     </repository>
+    <repository>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>openhab-snapshot</id>
+      <url>https://openhab.jfrog.io/artifactory/libs-snapshot</url>
+    </repository>
   </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>openhab-release</id>
-      <url>https://openhab.jfrog.io/artifactory/libs-release</url>
-    </pluginRepository>
-  </pluginRepositories>
   <build>
+    <resources>
+      <resource>
+        <targetPath>${project.build.directory}/feature</targetPath>
+        <filtering>true</filtering>
+        <directory>${project.basedir}/src/main/feature</directory>
+      </resource>
+      <resource>
+        <targetPath>${project.build.directory}/classes</targetPath>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>biz.aQute.bnd</groupId>
@@ -65,6 +85,66 @@
             <goals>
               <goal>bnd-process</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+        <version>${karaf.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <archive>
+            <addMavenDescriptor>false</addMavenDescriptor>
+            <manifest>
+              <addDefaultEntries>false</addDefaultEntries>
+            </manifest>
+          </archive>
+          <aggregateFeatures>true</aggregateFeatures>
+        </configuration>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <goals>
+              <goal>features-generate-descriptor</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <inputFile>${feature.directory}</inputFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>karaf-feature-verification</id>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+            <phase>verify</phase>
+            <configuration>
+              <descriptors combine.children="append">
+                <!-- Apache Karaf -->
+                <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
+                <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
+                <!-- Current feature under verification -->
+                <descriptor>file:${project.build.directory}/feature/feature.xml</descriptor>
+              </descriptors>
+              <distribution>org.apache.karaf.features:framework</distribution>
+              <framework>
+                <feature>framework</feature>
+              </framework>
+              <verifyTransitive>false</verifyTransitive>
+              <ignoreMissingConditions>true</ignoreMissingConditions>
+              <fail>first</fail>
+            </configuration>
+          </execution>
+          <execution>
+            <id>create-kar</id>
+            <goals>
+              <goal>kar</goal>
+            </goals>
+            <configuration>
+              <resourcesDir>${project.build.directory}/kar</resourcesDir>
+              <ignoreDependencyFlag>true</ignoreDependencyFlag>
+            </configuration>
           </execution>
         </executions>
       </plugin>
