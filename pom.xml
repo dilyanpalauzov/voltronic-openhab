@@ -96,9 +96,6 @@
         <configuration>
           <archive>
             <addMavenDescriptor>false</addMavenDescriptor>
-            <manifest>
-              <addDefaultEntries>false</addDefaultEntries>
-            </manifest>
           </archive>
           <aggregateFeatures>true</aggregateFeatures>
         </configuration>
