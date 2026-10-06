@@ -3,9 +3,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>be.bapha.openhab.addons.bundles</groupId>
+  <groupId>be.bapha.openhab.addons</groupId>
   <artifactId>be.bapha.openhab.binding.voltronic</artifactId>
-  <version>${ohc.version}-20261003</version>
+  <version>${ohc.version}-20261006</version>
 
   <name>openHAB Add-ons :: Bundles :: Voltronic Inverter Binding</name>
   <properties>
