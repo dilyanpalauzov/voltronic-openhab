@@ -123,7 +123,7 @@ abstract class Base extends BaseThingHandler implements Runnable {
     @Override
     public void handleCommand(ChannelUID channelUID, org.openhab.core.types.Command command) {
         if (!isOnline) {
-            updateState(channelUID, UnDefType.UNDEF);
+            updateState(channelUID, UnDefType.NULL);
             return;
         }
         try {
@@ -423,7 +423,7 @@ abstract class Base extends BaseThingHandler implements Runnable {
                 cb.thingUpdated(thing);
             }
         }
-        thing.getChannels().forEach(c -> updateState(c.getUID(), UnDefType.UNDEF));
+        thing.getChannels().forEach(c -> updateState(c.getUID(), UnDefType.NULL));
     }
 
     protected void pollingCode() {
@@ -525,19 +525,19 @@ abstract class Base extends BaseThingHandler implements Runnable {
 
     private void handleQMOD() {
         final String r = sendCommand("QMOD");
-        updateState("qmod#mode", !r.isEmpty() && !"NAK".equals(r) ? new StringType(r) : UnDefType.UNDEF);
+        updateState("qmod#mode", !r.isEmpty() && !"NAK".equals(r) ? new StringType(r) : UnDefType.NULL);
     }
 
     private void handleQFLAG() {
         final String r = sendCommand("QFLAG");
         updateState("qflag#mute", // the buzzer/mute is the opposite of all others
                 Pattern.matches("E.*a.*D.*", r) ? OnOffType.OFF
-                        : Pattern.matches(".*D.*a.*", r) ? OnOffType.ON : UnDefType.UNDEF);
+                        : Pattern.matches(".*D.*a.*", r) ? OnOffType.ON : UnDefType.NULL);
         for (var e : Map.of("qflag#overloadBypass", "b", "qflag#powerSaving", "j", "qflag#lcdReturn", "k",
                 "qflag#overloadRestart", "u", "qflag#overtemperatureRestart", "v", "qflag#backlight", "x",
                 "qflag#alarm", "y", "qflag#faultCode", "z").entrySet())
             updateState(e.getKey(), Pattern.matches("E.*" + e.getValue() + ".*D.*", r) ? OnOffType.ON
-                    : Pattern.matches(".*D.*" + e.getValue() + ".*", r) ? OnOffType.OFF : UnDefType.UNDEF);
+                    : Pattern.matches(".*D.*" + e.getValue() + ".*", r) ? OnOffType.OFF : UnDefType.NULL);
     }
 
     private void handleQPIRI() throws TimeoutException {
@@ -566,24 +566,24 @@ abstract class Base extends BaseThingHandler implements Runnable {
             updateState("qpiri#maxChargingCurrent", new QuantityType<>(s.nextInt(), Units.AMPERE));
             final String inputVoltageRange = s.next();
             updateState("qpiri#inputVoltageRange", "0".equals(inputVoltageRange) ? OnOffType.OFF
-                    : "1".equals(inputVoltageRange) ? OnOffType.ON : UnDefType.UNDEF);
+                    : "1".equals(inputVoltageRange) ? OnOffType.ON : UnDefType.NULL);
             updateState("qpiri#outputSourcePriority", new DecimalType(s.nextInt()));
             updateState("qpiri#chargerSourcePriority", new DecimalType(s.nextInt()));
             updateState("qpiri#parallelMaxNum", new DecimalType(s.nextInt()));
             updateState("qpiri#machineType", new StringType(s.next()));
             final String topology = s.next();
             updateState("qpiri#topology",
-                    "0".equals(topology) ? OnOffType.OFF : "1".equals(topology) ? OnOffType.ON : UnDefType.UNDEF);
+                    "0".equals(topology) ? OnOffType.OFF : "1".equals(topology) ? OnOffType.ON : UnDefType.NULL);
             final String outputMode = s.next();
             updateState("qpiri#outputMode",
                     new StringType(outputMode.length() == 2 ? outputMode.substring(1) : outputMode));
             updateState("qpiri#batteryRedischargeVoltage", new QuantityType<>(s.nextFloat(), Units.VOLT));
             final String pvConditionForParallel = s.next();
             updateState("qpiri#pvConditionForParallel", "0".equals(pvConditionForParallel) ? OnOffType.OFF
-                    : "1".equals(pvConditionForParallel) ? OnOffType.ON : UnDefType.UNDEF);
+                    : "1".equals(pvConditionForParallel) ? OnOffType.ON : UnDefType.NULL);
             final String pvPowerBalance = s.next();
             updateState("qpiri#pvPowerBalance", "0".equals(pvPowerBalance) ? OnOffType.OFF
-                    : "1".equals(pvPowerBalance) ? OnOffType.ON : UnDefType.UNDEF);
+                    : "1".equals(pvPowerBalance) ? OnOffType.ON : UnDefType.NULL);
         } catch (NoSuchElementException e) {
             logger.error("handleQPIRI reply was[{}]", r, e);
         }
