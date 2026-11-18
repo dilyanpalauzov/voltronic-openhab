@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>be.bapha.openhab.addons</groupId>
   <artifactId>be.bapha.openhab.binding.voltronic</artifactId>
-  <version>${ohc.version}-20261006</version>
+  <version>${ohc.version}-20261125</version>
 
   <name>openHAB Add-ons :: Bundles :: Voltronic Inverter Binding</name>
   <properties>
@@ -16,7 +16,7 @@
     <sat.version>0.18.0</sat.version>
     <spotless.eclipse.wtp.version>4.21.0</spotless.eclipse.wtp.version>
     <spotless.eclipse.version>4.25</spotless.eclipse.version>
-    <karaf.version>4.4.12</karaf.version>
+    <karaf.version>4.4.13</karaf.version>
   </properties>
   <dependencies>
     <dependency>
@@ -79,7 +79,7 @@
       <plugin>
         <groupId>biz.aQute.bnd</groupId>
         <artifactId>bnd-maven-plugin</artifactId>
-        <version>7.4.0</version>
+        <version>7.5.0</version>
         <executions>
           <execution>
             <goals>
@@ -295,6 +295,7 @@
           <dependency>
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-compiler-eclipse</artifactId>
+            <!-- version 2.18.1 does not work -->
             <version>2.16.2</version>
           </dependency>
           <dependency>
